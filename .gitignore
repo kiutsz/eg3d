@@ -25,3 +25,8 @@ vids/
 stylegan3/results
 eg3d/results
 eg3d_results
+
+dataset_preprocessing/ffhq/images256x256_dest
+dataset_preprocessing/ffhq/datasets
+dataset_preprocessing/ffhq/ffhq-dataset-v2.json
+eg3d/datasets
