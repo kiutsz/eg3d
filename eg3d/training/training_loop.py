@@ -96,8 +96,8 @@ def training_loop(
     run_dir                 = '.',      # Output directory.
     training_set_kwargs     = {},       # Options for training set.
     data_loader_kwargs      = {},       # Options for torch.utils.data.DataLoader.
-    G_kwargs                = {},       # Options for generator network.
-    D_kwargs                = {},       # Options for discriminator network.
+    G_kwargs                = {'z_dim': 256, 'c_dim': 0, 'w_dim': 256, 'img_resolution': 128, 'img_channels': 3, 'use_checkpoint': True},       # Options for generator network.
+    D_kwargs                = {'c_dim': 0, 'img_resolution': 128, 'img_channels': 3, 'use_checkpoint': True},       # Options for discriminator network.
     G_opt_kwargs            = {},       # Options for generator optimizer.
     D_opt_kwargs            = {},       # Options for discriminator optimizer.
     augment_kwargs          = None,     # Options for augmentation pipeline. None = disable.
@@ -106,8 +106,8 @@ def training_loop(
     random_seed             = 0,        # Global random seed.
     num_gpus                = 1,        # Number of GPUs participating in the training.
     rank                    = 0,        # Rank of the current process in [0, num_gpus[.
-    batch_size              = 4,        # Total batch size for one training iteration. Can be larger than batch_gpu * num_gpus.
-    batch_gpu               = 4,        # Number of samples processed at a time by one GPU.
+    batch_size              = 1,        # Total batch size for one training iteration. Can be larger than batch_gpu * num_gpus.
+    batch_gpu               = 1,        # Number of samples processed at a time by one GPU.
     ema_kimg                = 10,       # Half-life of the exponential moving average (EMA) of generator weights.
     ema_rampup              = 0.05,     # EMA ramp-up coefficient. None = no rampup.
     G_reg_interval          = None,     # How often to perform regularization for G? None = disable lazy regularization.
